@@ -1,0 +1,14 @@
+name: myenv
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12.7
+  - fastapi
+  - Pillow
+  - python-multipart
+  - pytorch
+  - transformers
+  - uvicorn
+  - nest-asyncio
+  - pyngrok
