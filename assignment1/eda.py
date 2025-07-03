@@ -3,7 +3,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the data
-df = pd.read_csv('athletes.csv')
+df = pd.read_csv('assignment1/athletes.csv')
+
+# Calculate total lift and save the updated DataFrame
+df['total_lift'] = df['snatch'] + df['deadlift'] + df['backsq'] + df['candj']
+df.to_csv('athletes.csv')
 
 # Basic info
 print('Shape:', df.shape)
@@ -48,7 +52,3 @@ for col in cat_cols:
     plt.ylabel('Count')
     plt.tight_layout()
     plt.show()
-
-
-df['total_lift'] = df['snatch'] + df['deadlift'] + df['bac_squat'] + df['candj']
-df.write_csv('athletes.csv')
