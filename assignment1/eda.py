@@ -1,9 +1,18 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import sys
 
 # Load the data
-df = pd.read_csv('assignment1/athletes.csv')
+try:
+    df = pd.read_csv('assignment1/athletes.csv')
+except FileNotFoundError:
+    try:
+        df = pd.read_csv('athletes.csv')
+    except FileNotFoundError:
+        raise FileNotFoundError("The file 'athletes.csv' was not found in the current directory.")
+
+
 
 # Calculate total lift and save the updated DataFrame
 df['total_lift'] = df['snatch'] + df['deadlift'] + df['backsq'] + df['candj']
@@ -52,3 +61,4 @@ for col in cat_cols:
     plt.ylabel('Count')
     plt.tight_layout()
     plt.show()
+sys.exit()
